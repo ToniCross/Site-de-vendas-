@@ -6,9 +6,9 @@ https://www.figma.com/proto/S4a7xJIRnDJmTfYPMFMRtn/Untitled?node-id=15%3A39&scal
 # Checkist
 ### Caixas de Diálogo
 
-- [ ] prompt
- - [ ] alert
- - [ ] confirm
+- [x] prompt
+ - [x] alert
+ - [x] confirm
 ### Temporizadores
 
 - [ ] setInterval
