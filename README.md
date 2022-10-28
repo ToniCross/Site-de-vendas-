@@ -11,8 +11,8 @@ https://www.figma.com/proto/S4a7xJIRnDJmTfYPMFMRtn/Untitled?node-id=15%3A39&scal
  - [x] confirm
 ### Temporizadores
 
-- [ ] setInterval
- - [ ] setTimeout
+- [x] setInterval
+ - [x] setTimeout
 ### Funções
 
  - [ ] Função anônima com argumento
