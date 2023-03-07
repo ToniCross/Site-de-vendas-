@@ -1,7 +1,7 @@
 # Site de vendas
 
 ### Projeto de web2 (Protótipo): 
-https://www.figma.com/proto/S4a7xJIRnDJmTfYPMFMRtn/Untitled?node-id=15%3A39&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A2
+https://www.figma.com/proto/ldcE29FXrKVtKBCPjsbSkw/Untitled?page-id=0%3A1&node-id=1%3A2&viewport=-1142%2C127%2C0.5&scaling=min-zoom&starting-point-node-id=1%3A2
 
 # Checkist
 ### Caixas de Diálogo
