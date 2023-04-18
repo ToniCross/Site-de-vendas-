@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-comerce Cherry on the Cake</title>
+
+    <!-- CSS do Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <style>
+        body{
+            background-image: url('img/background/imagem-de-fundo.png');
+            background-repeat: repeat;
+            background-position: center 0;
+            background-size: cover;
+            background-color: #693708;
+          }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <p>Por favor entre com seu e-mail e a senha</p>
+        <form id="login-form">
+            
+            <!-- Aqui é aquela caixinha de usuário ou e-mail / estou tentando colocar o icone do bootstrap --> 
+
+            <div class="input-group-user">
+              <input type="text" name="username" placeholder="Usuário ou E-mail">
+            </div>
+            <div class="input-group-password">
+              <input type="password" name="password" placeholder="Senha">
+            </div>
+            
+            
+
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+
+          <button type="submit">Login</button>
+          <button type="button">Ou continue com o Google</button>
+          <div class="texto-para-criar-conta">
+            <a class="texto-não-possui-conta-ainda">Não possui conta ainda?</a>
+            <a href="#" class="create-account">Crie uma aqui!</a>
+          </div>
+        </form>
+        <div id="redirect-message">
+            Você está sendo redirecionado em <span id="countdown">30</span> segundos...
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('login-form');
+        const redirectMessage = document.getElementById('redirect-message');
+        const countdownElement = document.getElementById('countdown');
+    
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          redirectMessage.style.display = 'block';
+          let countdown = 30;
+          countdownElement.innerText = countdown;
+    
+          const timer = setInterval(() => {
+            countdown--;
+            countdownElement.innerText = countdown;
+            if (countdown === 0) {
+              clearInterval(timer);
+              window.location.href = 'login.html';
+            }
+          }, 1000);
+        });
+    </script>
+</body>
+</html>
