@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+}
+
+.logo {
+  float: left;
+}
 
 .logo > img { 
   position: left;
@@ -20,6 +27,7 @@ nav ul {
 
 nav li {
   float: right;
+  margin-left: 40px;
 }
 
 nav li a {
@@ -33,4 +41,73 @@ nav li a {
 
 nav li a:hover {
   background-color: #693708;
+}
+
+/* Estilos CSS para o carrossel */
+.carousel {
+   width: 100%;
+   overflow: hidden;
+ }
+        
+.carousel-content {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  width: 100%;
+}
+        
+.carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-right: 15px; 
+}
+
+/* Estilos CSS para os botões de navegação do carrossel */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-nav button {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Estilos CSS para o indicador de item atual do carrossel */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators button {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background-color: #333;
+}
+
+/* Produtos */
+
+.carousel-image-1 {
+  width: 35%; 
+}
+
+.carousel-image-2 {
+  width: 25%; 
+}
+
+.carousel-image-3 {
+  width: 45%; 
 }

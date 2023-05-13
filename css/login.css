@@ -72,7 +72,7 @@ button[type="submit"] {
   width: 395px;
 }
 
-button[type="submit-with-google"]{
+button[type="button"]{
   padding: 10px 20px;
   margin-top: 18px;
   background-color: #1A1B22;
