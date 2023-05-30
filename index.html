@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Página Inicial</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="assets/resources/library/materialize/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/resources/library/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="assets\resources/styles/style.css" />
+  </head>
+
+  <body>
+    <div id="menu"></div>
+    <main>
+
+
+
+      <!-- intro -->
+      <div class="intro amber z-depth-1 my-logo-text">
+        <h1 class="black-text text-lighten-5">Cherry Cakes</h1>
+        <h4 class="black-text text-darken-1">
+          Deixando o seu dia cada vez mais doce !
+        </h4>
+      </div>
+      <!-- intro -->
+
+
+
+      <!-- container -->
+      <div class="container about">
+
+
+
+        <!-- painel serviços -->
+        <div id="painel-servicos" style="display: none">
+          <h5>Serviços</h5>
+          <hr />
+          <div class="row">
+
+
+            <!-- serviços -->
+            <div class="col s12 m6">
+              <a href="/app/pages/saque/saque.html">
+                <div class="card-panel amber accent-4 center my-card-button">
+                  <span class="white-text flow-text"> SAQUE </span>
+                </div>
+              </a>
+            </div>
+            <div class="col s12 m6">
+              <a href="./app/pages/deposito/deposito.html">
+                <div class="card-panel amber accent-4 center my-card-button">
+                  <span class="white-text flow-text"> DEPÓSITO </span>
+                </div>
+              </a>
+            </div>
+            <div class="col s12 m6">
+              <a href="./app/pages/saldo/saldo.html">
+                <div class="card-panel amber accent-4 center my-card-button">
+                  <span class="white-text flow-text"> SALDO </span>
+                </div>
+              </a>
+            </div>
+            <div class="col s12 m6">
+              <a href="./app/pages/extrato/extrato.html">
+                <div class="card-panel amber accent-4 center my-card-button">
+                  <span class="white-text flow-text"> EXTRATO </span>
+                </div>
+              </a>
+            </div>
+            <!-- serviços -->
+
+
+          </div>
+        </div>
+        <!-- fim painel serviços -->
+
+
+
+        <!-- painel login -->
+        <div id="painel-login" class="row">
+          <div class="col-12 col-md-6 offset-md-3">
+            <div
+              id="botao-login"
+              class="card text-center my-card-button btn btn-xl btn-primary"
+              style="background-color: #ffffff"
+            >
+              <a href="app/pages/login/login.html" class="text-decoration-none">
+                <span class="flow-text text-black text-lighten-5">LOGIN</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- fim painel login -->
+
+
+
+        <!-- saque -->
+        <div class="row">
+          <div class="col s12">
+            <div id="painel-saque"></div>
+          </div>
+        </div>
+        <!-- saque -->
+
+
+
+      </div>
+    </main>
+    <div id="footer"></div>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
+    <script type="module" src="/app/pages/index.js"></script>
+  </body>
+</html>
