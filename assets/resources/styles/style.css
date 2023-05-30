@@ -164,6 +164,12 @@ main {
   /*text-transform: uppercase;*/
 }
 
+.intro h4 {
+  background-color: #f5f5f5;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 .intro h5 {
   /*text-transform: uppercase;*/
   background-color: #f5f5f5;
