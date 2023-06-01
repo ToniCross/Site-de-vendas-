@@ -4,8 +4,11 @@
     <title>Login</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="../../../favicon.png   " />
     <link rel="stylesheet" href="../../../assets/resources/styles/style.css" />
+    <link rel="stylesheet" href="login.css">
+    
+    
   </head>
 
   <body>
@@ -13,10 +16,15 @@
 
     <!-- formulario -->
     <main>
-      <div class="container contact">
-        <h5>Login</h5>
-        <h6>Entre com os seus dados</h6>
-        <hr />
+      <div class="container-contact">
+
+        <div class="tittle">
+          <span>Login</span>
+        </div>
+        <div class="sub-tittle">
+          <span>Por favor entre com seu e-mail e a senha</span>
+        </div>
+
         <div class="row">
           <div class="col s12">
             <div
@@ -25,29 +33,35 @@
               style="display: none"
             ></div>
           </div>
-          <form class="col s12" id="form-login">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="input-username" type="text" class="validate" />
-                <label for="input-username">Nome de Usuário</label>
-              </div>
+          <form id="login-form">
+            <!-- Aqui é aquela caixinha de usuário ou e-mail / estou tentando colocar o icone do bootstrap -->
+  
+            <div class="input-group-user">
+              <input
+                type="text"
+                name="username"
+                placeholder="Usuário ou E-mail"
+              />
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="input-password" type="text" class="validate" />
-                <label for="input-password">Senha</label>
-              </div>
+  
+            <div class="input-group-password">
+              <i class="&#xF538" style="color: #ffffff"></i>
+              <input type="password" name="password" placeholder="Senha" />
             </div>
-            <button
-              class="btn waves-effect waves-light amber darken-4"
-              type="submit"
-              name="action"
-            >
-              Enviar
-              <i class="material-icons right">send</i>
-            </button>
+  
+            <a href="#" class="forgot-password">Esqueceu a senha?</a>
+  
+            <button type="submit">Login</button>
+            <button type="button">Ou continue com o Google</button>
+            <div class="texto-para-criar-conta">
+              <a class="texto-não-possui-conta-ainda">Não possui conta ainda?</a>
+              <a href="#" class="create-account">Crie uma aqui!</a>
+            </div>
           </form>
         </div>
+
+        
+
       </div>
     </main>
     <!-- fim formulario -->
