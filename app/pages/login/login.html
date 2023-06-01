@@ -7,71 +7,166 @@
     <link rel="icon" type="image/png" href="../../../favicon.png   " />
     <link rel="stylesheet" href="../../../assets/resources/styles/style.css" />
     <link rel="stylesheet" href="login.css">
-    
-    
   </head>
 
   <body>
     <div id="menu"></div>
 
-    <!-- formulario -->
     <main>
-      <div class="container-contact">
+      <div class="container">
 
-        <div class="tittle">
-          <span>Login</span>
-        </div>
-        <div class="sub-tittle">
-          <span>Por favor entre com seu e-mail e a senha</span>
-        </div>
+        <!-- formulario de Login -->
 
-        <div class="row">
-          <div class="col s12">
-            <div
-              id="msg-login"
-              class="card-panel red white-text"
-              style="display: none"
-            ></div>
+        <div class="container-login" id="container-login" style="display: block;">  
+          <div class="tittle">
+            <span>Login</span>
           </div>
-          <form id="login-form">
-            <!-- Aqui é aquela caixinha de usuário ou e-mail / estou tentando colocar o icone do bootstrap -->
-  
-            <div class="input-group-user">
-              <input
-                type="text"
-                name="username"
-                placeholder="Usuário ou E-mail"
-              />
+          <div class="sub-tittle">
+            <span>Por favor entre com seu e-mail e a senha</span>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <div
+                id="msg-login"
+                class="card-panel red white-text"
+                style="display: none"
+              ></div>
             </div>
-  
-            <div class="input-group-password">
-              <i class="&#xF538" style="color: #ffffff"></i>
-              <input type="password" name="password" placeholder="Senha" />
-            </div>
-  
-            <a href="#" class="forgot-password">Esqueceu a senha?</a>
-  
-            <button type="submit">Login</button>
-            <button type="button">Ou continue com o Google</button>
-            <div class="texto-para-criar-conta">
-              <a class="texto-não-possui-conta-ainda">Não possui conta ainda?</a>
-              <a href="#" class="create-account">Crie uma aqui!</a>
-            </div>
-          </form>
-        </div>
-
+            <form id="login-form">  <!--Aqui é o form de Login-->
+              <div class="input-group-user">
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Usuário ou E-mail"
+                />
+              </div>
+    
+              <div class="input-group-password">
+                <i class="&#xF538" style="color: #ffffff"></i>
+                <input type="password" name="password" placeholder="Senha" />
+              </div>
+    
+              <a href="#" class="forgot-password">Esqueceu a senha?</a>
+    
+              <button type="submit">Login</button>
+              <button type="button">Ou continue com o Google</button>
+              <div class="texto-para-criar-conta">
+                <a class="texto-não-possui-conta-ainda">Não possui conta ainda?</a>
+                <a href="#" class="create-account" id="createAccountLink">Crie uma aqui!</a>
+              </div>
+            </form>    <!--Aqui acaba o form de Login-->
+          </div>
+        </div>    
         
+        <!-- fim do container login-->
 
+        <!-- formulario de cadastro -->
+
+        <div class="container-register" id="container-register" style="display: none;"> 
+          <div class="tittle">
+            <span>Cadastro</span>
+          </div>
+          <div class="sub-tittle">
+            <span>Por favor insira seus dados abaixo</span>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <div
+                id="msg-login"
+                class="card-panel red white-text"
+                style="display: none"
+              ></div>
+              <form id="register-form">  <!-- Aqui é o inicio do form de Cadastro -->
+
+                <div class="input-group-Name">
+                  <input
+                    type="text"
+                    name="Name"
+                    placeholder="Nome completo"
+                  />
+                </div>
+
+                <div class="input-group-user">
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="E-mail"
+                  />
+                </div>
+
+                <div class="input-group-Street">
+                  <input
+                    type="text"
+                    name="street"
+                    placeholder="Nome da rua"
+                  />
+                </div>
+
+                <div class="input-group-Number">
+                  <input
+                    type="text"
+                    name="numer"
+                    placeholder="Número da casa"
+                  />
+                </div>
+
+                <div class="input-group-Phone">
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Telefone celular"
+                  />
+                </div>
+      
+                <div class="input-group-password">
+                  <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Senha" 
+                    />
+                </div>
+
+                <div class="input-group-again">
+                  <input 
+                    type="password" 
+                    name="again" 
+                    placeholder="Confirme a sua senha" 
+                    />
+                </div>
+      
+                <button type="submit">Continuar</button>
+                <div class="texto-para-criar-conta">
+                </div>
+              </form>    <!--Aqui acaba o form de Cadastro-->
+            </div>
+        </div>  
+        
+        <!-- fim do container cadastro-->
       </div>
     </main>
     <!-- fim formulario -->
 
     <div id="footer"></div>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      const createAccountLink = document.getElementById('createAccountLink');
+      const containerRegister = document.getElementById('container-register');
+      const containerLogin = document.getElementById('container-login');
+
+      createAccountLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        containerRegister.style.display = 'block';
+        containerLogin.style.display = 'none';
+        });
+      });
+
+    </script>
+
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
     <script src="/node_modules/alertifyjs/build/alertify.js"></script>
-    <script type="module" src="/assets/resources/scripts/shared.js"></script>
+    <script type="module" src="../../util/shared.js"></script>
     <script type="module" src="login.js"></script>
   </body>
 </html>
