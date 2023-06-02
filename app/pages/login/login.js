@@ -25,7 +25,7 @@ window.onload = function () {
           const userData = JSON.parse(storedData);
   
           if (username === userData.username && password === userData.password) {
-            window.location.href = 'produtos.html';
+            window.location.href = '../produtos/produtos.html';
             console.log('Login bem-sucedido!');
           } else {
             console.log('Usuário ou senha inválidos');

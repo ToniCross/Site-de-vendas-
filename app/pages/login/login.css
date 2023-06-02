@@ -75,8 +75,8 @@
   .pen-svg {
     fill: white;
     position: absolute;
-    left: 29%; /* ajuste de posicionamento */
-    top: 29%; /* ajuste de posicionamento */
+    left: 29%; 
+    top: 29%; 
     transform: translateY(-50%);
     width: 17px;
   }
