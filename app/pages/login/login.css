@@ -51,9 +51,9 @@
   
   input[type="text"] {
     padding: 10px;
-    padding-left: 30px;
+    padding-left: 32px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-top: 20px;
     background-color: #693708;
     border-color: white;
     color: white;
@@ -62,21 +62,23 @@
   
   input[type="password"] {
     padding: 10px;
-    padding-left: 30px;
+    padding-left: 32px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 5px;
     background-color: #693708;
     border-color: white;
     color: white;
     width: 350px;
   }
 
-  input.name {
-    background-image: url('../../../assets/resources/library/materialize/css/materialize.min.css');
-    background-repeat: no-repeat;
-    background-position: 5px center;
-    padding-left: 30px;
-    /* ... estilos adicionais ... */
+  .pen-svg {
+    fill: white;
+    position: absolute;
+    left: 29%; /* ajuste de posicionamento */
+    top: 29%; /* ajuste de posicionamento */
+    transform: translateY(-50%);
+    width: 17px;
   }
   
   /* a partir daqui é os botôes */

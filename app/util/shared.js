@@ -1,16 +1,9 @@
 'use strict';
 
-const USERNAME_KEY = 'tomaz.leite';
+const USERNAME_KEY = 'toniazzo';
 const COSTS_KEY = 'custos';
-const LOGGED_IN_KEY = 'eh_logado';
+const LOGGED_IN_KEY = '123';
 
-export const WITHDRAW_TYPE = 'saque';
-export const DEPOSIT_TYPE = 'deposito';
-
-export const TAX_DEPOSIT = 0.01;
-export const TAX_WITHDRAW = 0.02;
-export const TAX_BALANCE = 0.25;
-export const TAX_BANK_STATEMENT = 0.25;
 
 /**
  * Retorna o ano corrente com quatro dígitos.
