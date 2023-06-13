@@ -71,15 +71,6 @@
     color: white;
     width: 350px;
   }
-
-  .pen-svg {
-    fill: white;
-    position: absolute;
-    left: 29%; 
-    top: 29%; 
-    transform: translateY(-50%);
-    width: 17px;
-  }
   
   /* a partir daqui é os botôes */
 

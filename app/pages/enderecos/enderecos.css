@@ -1,5 +1,69 @@
-.container{
+.container {
+    background-color: #693708;
     max-width: 800px;
-    margin-top: 8%;
-    margin-bottom: 8%;
+    width: 380px;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 15px 60px;
+    border-radius: 5%;
+}
+
+.sub-tittle span {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sub-tittle {
+    margin-bottom: 15px;
+  }
+
+  .tittle span {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+  }
+
+  .tittle {
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* a partir daqui é as caixinhas de entrada */
+  
+  input[type="text"] {
+    padding: 10px;
+    padding-left: 32px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: #693708;
+    border-color: white;
+    color: white;
+    width: 350px;
+  }
+  
+  /* a partir daqui é os botôes */
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    margin-top: 22px;
+    background-color: #693708;
+    border-color: white;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 255px;
   }
