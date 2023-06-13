@@ -222,13 +222,3 @@ footer {
   padding-top: 0px;
 }
 
-/**
-	Saldo
-*/
-
-.my-balance {
-  padding: 20px 0px !important;
-  font-size: 3em;
-  font-family: "airborne";
-  text-align: center;
-}
