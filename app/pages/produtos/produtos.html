@@ -14,7 +14,8 @@
   </head>
 
   <body>
-    <iframe id="menu" src="../../../menu.html"></iframe>
+    <div id="menu"></div>
+    
 
     <div class="container">
       <main>
@@ -87,11 +88,20 @@
 
     <iframe id="footer" src="../../../rodape.html"></iframe>
 
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '../../../menu.html', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          document.getElementById('menu').innerHTML = xhr.responseText;
+        }
+      };
+      xhr.send();
+    </script>
+
     <script src="../../../assets/resources/library/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/node_modules/alertifyjs/build/alertify.js"></script>
     <script type="module" src="../../util/shared.js"></script>
     <script type="module" src="produtos.js"></script>
+    <script src="../index.js"></script>
   </body>
 </html>

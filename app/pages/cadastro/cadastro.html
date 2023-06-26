@@ -10,85 +10,96 @@
       href="../../../assets/resources/library/bootstrap/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="../../../assets/resources/styles/style.css" />
-    <link rel="stylesheet" href="carrinho.css" />
+    <link rel="stylesheet" href="cadastro.css" />
   </head>
 
   <body>
-    <iframe id="menu" src="../../../menu.html"></iframe>
-
     <div class="container">
       <main>
         <!-- formulario de cadastro -->
 
         <div class="container-register" id="container-register" style="display: block;"> 
-            <div class="tittle">
-              <span>Cadastro</span>
+
+          <div class="tittle">
+            <span>Cadastro</span>
+          </div>
+
+          <div class="sub-tittle">
+            <span>Por favor insira seus dados abaixo</span>
+          </div>
+
+          <form id="register-form">  <!-- inicio do form -->
+            <div class="input-group">
+  
+              <input class="name"
+                id="name"
+                type="text"
+                name="username"
+                placeholder="Nome completo"
+               />
+  
+              <input class="email"
+                id="email"
+                type="text"
+                name="email"
+                placeholder="E-mail"
+               />
+  
+              <input class="phone"
+                id="phone"
+                type="text"
+                name="phone"
+                placeholder="Telefone celular"
+               />
+  
+              <input class="password"
+                type="password" 
+                name="password" 
+                placeholder="Senha" 
+               />
+  
+              <input class="again"
+                id="password"
+                type="password" 
+                name="again" 
+                placeholder="Confirme a sua senha" 
+               />
             </div>
-            <div class="sub-tittle">
-              <span>Por favor insira seus dados abaixo</span>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <div
-                  id="msg-login"
-                  class="card-panel red white-text"
-                  style="display: none"
-                ></div>
-                <form id="register-form">  <!-- inicio do form -->
   
-                  <div class="input-group">
-  
-                    <input class="name"
-                      type="text"
-                      name="username"
-                      placeholder="Nome completo"
-                    />
-  
-                    <input class="email"
-                      type="text"
-                      name="email"
-                      placeholder="E-mail"
-                    />
-                    
-                    />
-  
-                    <input class="phone"
-                      type="text"
-                      name="phone"
-                      placeholder="Telefone celular"
-                    />
-  
-                    <input class="password"
-                      type="password" 
-                      name="password" 
-                      placeholder="Senha" 
-                      />
-  
-                      <input class="again"
-                      type="password" 
-                      name="again" 
-                      placeholder="Confirme a sua senha" 
-                      />
-                  </div>
-  
-                  <button type="submit">Continuar</button>
-                  <div class="texto-para-criar-conta">
-                  </div>
-                </form>    <!--Aqui acaba o form de Cadastro-->
-              </div>
-          </div>  
-          
-          <!-- fim do container cadastro-->
+            <button type="submit">Continuar</button>
+          </form>    <!--Aqui acaba o form de Cadastro-->         
       </main>
-    </div>
+    </div>  
+    <!-- fim do container cadastro-->
 
-    <iframe id="footer" src="../../../rodape.html"></iframe>
+    <script>
+      document.getElementById("register-form").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let telefone = document.getElementById("phone").value;
+    let senha = document.getElementById("password").value;
+    
+    if (name && email && telefone && senha) {
 
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
-    <script src="../../../assets/resources/library/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/node_modules/alertifyjs/build/alertify.js"></script>
-    <script type="module" src="../../util/shared.js"></script>
-    <script type="module" src="produtos.js"></script>
+        let userData = {
+            name: name,
+            email: email,
+            telefone: telefone,
+            senha: senha
+          };
+      
+          localStorage.setItem("userData", JSON.stringify(userData));
+
+          alert("Cadastro realizado com sucesso!");
+
+      window.location.href = "../login/login.html";
+    } else {
+
+      alert("Por favor, preencha todos os campos!");
+    }
+  });
+    </script>
   </body>
 </html>

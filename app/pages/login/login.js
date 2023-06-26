@@ -2,67 +2,31 @@
 
 import { LOGGED_IN_KEY, USERNAME_KEY } from '../../util/shared.js';
 
-window.onload = function () {
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-  document.addEventListener('DOMContentLoaded', function() {
+  let email = document.getElementById("email").value;
+  let senha = document.getElementById("password").value;
 
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
+  console.log("Ele pegou as variáveis");
 
-    loginForm.addEventListener('submit', function(event) {
-      event.preventDefault();
+  if (email && senha) {
+    let storedData = localStorage.getItem("userData");
+    if (storedData) {
+      let userData = JSON.parse(storedData);
+      if (userData.email === email && userData.senha === senha) {
+        
+        alertify.success("Login realizado com sucesso!");
 
-      const loginButton = event.submitter;
-
-      if (loginButton.name === 'login') {
-        const username = loginForm.querySelector('#login-form input[name="username"]').value;
-        const password = loginForm.querySelector('#login-form input[name="password"]').value;
-
-        const storedData = localStorage.getItem('userData');
-
-        if (storedData) {
-
-          const userData = JSON.parse(storedData);
-  
-          if (username === userData.username && password === userData.password) {
-            window.location.href = '../produtos/produtos.html';
-            console.log('Login bem-sucedido!');
-          } else {
-            console.log('Usuário ou senha inválidos');
-          }
-        } else {
-          console.log('Não há usuário cadastrado');
-        }
+        window.location.href = "../produtos/produtos.html";
+        console.log("Era pra ter desviado para a página produtos");
+      } else {
+        alertify.error("Email ou senha incorretos. Por favor, tente novamente.");
       }
-   });
-
-   registerForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const registerButton = event.submitter;
-
-    if (registerButton.name === 'register') {
-
-      const username = registerForm.querySelector('input[name="username"]').value;
-      const email = registerForm.querySelector('input[name="email"]').value;
-      const street = registerForm.querySelector('input[name="street"]').value;
-      const number = registerForm.querySelector('input[name="number"]').value;
-      const phone = registerForm.querySelector('input[name="phone"]').value;
-      const password = registerForm.querySelector('input[name="password"]').value;
-
-      const user = {
-        username: username,
-        email: email,
-        street: street,
-        number: number,
-        phone: phone,
-        password: password
-      };
-      
-      localStorage.setItem('user', JSON.stringify(user));
-  
-      window.location.href = 'login.html';
+    } else {
+      alertify.alert("Não há registro de usuário. Por favor, cadastre-se primeiro.");
     }
-  });
+  } else {
+    alertify.alert("Por favor, preencha todos os campos!");
+  }
 });
-}

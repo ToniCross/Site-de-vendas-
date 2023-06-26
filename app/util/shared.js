@@ -1,7 +1,6 @@
 'use strict';
 
 const USERNAME_KEY = 'toniazzo';
-const COSTS_KEY = 'custos';
 const LOGGED_IN_KEY = '123';
 
 

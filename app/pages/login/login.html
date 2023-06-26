@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="../../../favicon.png   " />
     <link rel="stylesheet" href="../../../assets/resources/styles/style.css" />
+    <link rel="stylesheet" href="../../../assets/resources/library/alertify/alertify.min.css" />
     <link rel="stylesheet" href="login.css">
   </head>
 
   <body>
     <main>
       <div class="container">
-
-        <!-- formulario de Login -->
-
         <div class="container-login" id="container-login" style="display: block;">  
           <div class="tittle">
             <span>Login</span>
@@ -22,26 +20,25 @@
           <div class="sub-tittle">
             <span>Por favor entre com seu e-mail e a senha</span>
           </div>
-          <div class="row">
-            <div class="col s12">
-              <div
-                id="msg-login"
-                class="card-panel red white-text"
-                style="display: none"
-              ></div>
-            </div>
-            <form id="login-form">  <!--Aqui é o form de Login-->
+            <form id="loginForm">  <!--Aqui é o form de Login-->
               <div class="input-group-user">
                 <input
                   type="text"
+                  id="email"
                   name="username"
-                  placeholder="Usuário ou E-mail"
+                  placeholder="E-mail"
+                  required
                 />
               </div>
     
               <div class="input-group-password">
-                <i class="&#xF538" style="color: #ffffff"></i>
-                <input type="password" name="password" placeholder="Senha" />
+                <input 
+                  type="password" 
+                  id="password"
+                  name="password" 
+                  placeholder="Senha" 
+                  required
+                />
               </div>
     
               <a href="#" class="forgot-password">Esqueceu a senha?</a>
@@ -50,36 +47,49 @@
               <button type="button">Ou continue com o Google</button>
               <div class="texto-para-criar-conta">
                 <a class="texto-não-possui-conta-ainda">Não possui conta ainda?</a>
-                <a href="#" class="create-account" id="createAccountLink">Crie uma aqui!</a>
+                <a href="../cadastro/cadastro.html" class="create-account" id="createAccountLink">Crie uma aqui!</a>
               </div>
             </form>    <!--Aqui acaba o form de Login-->
           </div>
         </div>    
-        
-        <!-- fim do container login-->
-        
       </div>
     </main>
     <!-- fim formulario -->
+
+    
+    <script src="../../../assets/resources/library/alertify/alertify.min.js"></script>
+    
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-      const createAccountLink = document.getElementById('createAccountLink');
-      const containerRegister = document.getElementById('container-register');
-      const containerLogin = document.getElementById('container-login');
+      'use strict';
+      const LOGGED_IN_KEY = '123';
+const USERNAME_KEY = 'toniazzo';
 
-      createAccountLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        containerRegister.style.display = 'block';
-        containerLogin.style.display = 'none';
-        });
-      });
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
+  let email = document.getElementById("email").value;
+  let senha = document.getElementById("password").value;
+
+  if (email && senha) {
+    let storedData = localStorage.getItem("userData");
+    if (storedData) {
+      let userData = JSON.parse(storedData);
+      if (userData.email === email && userData.senha === senha) {
+        
+        alert("Login realizado com sucesso!");
+
+        window.location.href = "../produtos/produtos.html";
+        console.log("Era pra ter desviado para a página produtos");
+      } else {
+        alertify.error("Email ou senha incorretos. Por favor, tente novamente.");
+      }
+    } else {
+      alertify.alert("Não há registro de usuário. Por favor, cadastre-se primeiro.");
+    }
+  } else {
+    alertify.alert("Por favor, preencha todos os campos!");
+  }
+});
     </script>
-
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
-    <script src="/node_modules/alertifyjs/build/alertify.js"></script>
-    <script type="module" src="../../util/shared.js"></script>
-    <script type="module" src="login.js"></script>
   </body>
 </html>

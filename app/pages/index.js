@@ -6,6 +6,8 @@ import {
   USERNAME_KEY,
 } from '../util/shared.js';
 
+
+
 /**
 	Cadastra um usuário default para funcionamento do login.
 	Só realiza o cadastro caso o usuário ainda não esteja salvo no WebStorage.
@@ -28,17 +30,6 @@ function initializeUsers() {
   localStorage.setItem(LOGGED_IN_KEY, false);
 }
 
-/**
- * Apresenta ou esconde o painel de operações de acordo com o estado de login.
- */
-function showOperations() {
-  var isLoggedIn = localStorage.getItem(LOGGED_IN_KEY);
-
-  if (isLoggedIn === 'true') {
-    $('#painel-login').hide();
-    $('#painel-servicos').fadeIn();
-  }
-}
 
 //diálogos de boas vindas
 function welcome() {

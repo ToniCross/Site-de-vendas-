@@ -1,0 +1,90 @@
+/**
+  a partir daqui é o login
+*/
+
+
+.container {
+    background-color: #693708;
+    width: 380px;
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    padding: 15px 60px;
+    border-radius: 5%;
+}
+
+.sub-tittle span {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sub-tittle {
+    margin-bottom: 15px;
+  }
+
+  .tittle span {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+  }
+
+  .tittle {
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* a partir daqui é as caixinhas de entrada */
+  
+  input[type="text"] {
+    padding: 10px;
+    padding-left: 32px;
+    margin-top: 20px;
+    background-color: #693708;
+    border-color: white;
+    color: white;
+    width: 350px;
+  }
+  
+  input[type="password"] {
+    padding: 10px;
+    padding-left: 32px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    background-color: #693708;
+    border-color: white;
+    color: white;
+    width: 350px;
+  }
+  
+  /* a partir daqui é os botôes */
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    margin-top: 22px;
+    background-color: #693708;
+    border-color: white;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 265px;
+  }
+  
+  p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 5%;
+  }
