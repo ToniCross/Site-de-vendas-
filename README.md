@@ -22,7 +22,7 @@ https://www.figma.com/proto/7j8v4UV6gqVnBGBXcUAJAz/Design-Login%2FRegister-Page-
 - [x] Função com nome
 - [x] Função aninhada/local - declarar uma função dentro de outra
 - [x] Passagem de uma função como parâmetro para outra função - ambas as funções precisam ser implementadas pelo aluno
-- [ ] Função Flecha - Arrow Function
+- [x] Função Flecha - Arrow Function
 ### Eventos
 
 - [ ] Evento de carregamento do documento - onload
