@@ -11,11 +11,89 @@
     />
     <link rel="stylesheet" href="../../../assets/resources/styles/style.css" />
     <link rel="stylesheet" href="produtos.css" />
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .logo {
+        float: left;
+      }
+
+      .logo > img {
+        position: left;
+        width: 8%;
+        border-radius: 20%;
+        margin-top: 1%;
+        margin-left: 1%;
+      }
+
+      .container-navBar {
+        background-color: #693708;
+        overflow: hidden;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-right: 25%;
+      }
+
+      nav li {
+        float: right;
+        margin-left: 40px;
+      }
+
+      nav li a {
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      nav li a:hover {
+        background-color: rgba(54, 27, 1, 1);
+        border-radius: 10%;
+      }
+
+      .navbar-brand img {
+        border-radius: 15%;
+        margin-left: 15px;
+        margin-top: 15px;
+        margin-bottom: -18px;
+      }
+    </style>
   </head>
 
   <body>
-    <div id="menu"></div>
-    
+    <div class="container-navBar">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../../../assets/resources/images/logo.jpg.jpeg"
+          width="90"
+          height="72"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="../carrinho/carrinho.html" id="link-carrinho"
+              >Carrinho <span id="contador-carrinho">0</span></a
+            >
+          </li>
+          <li>
+            <a href="../produtos/produtos.html">Produtos</a>
+          </li>
+          <li>
+            <a href="../enderecos/enderecos.html">Endereços</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
     <div class="container">
       <main>
@@ -30,9 +108,18 @@
               </div>
               <div class="carousel-descripition">
                 <h5>Naked the Cake</h5>
-                <p>Bolo de dois andares de frutas vermelhas, serve 20 pessoas.</p>
+                <p>
+                  Bolo de dois andares de frutas vermelhas, serve 20 pessoas.
+                </p>
                 <p>Preço: R$179.90</p>
-                <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                <button
+                  class="btn-add-to-cart"
+                  data-nome="Naked the Cake"
+                  data-descricao="Bolo de dois andares de frutas vermelhas, serve 20 pessoas."
+                  data-preco="179.90"
+                >
+                  Adicionar ao Carrinho
+                </button>
               </div>
             </div>
             <div class="carousel-item">
@@ -46,7 +133,14 @@
                 <h5>Bolo de cenoura</h5>
                 <p>Com cobertura de chocolate cremoso, serve 8 pessoas.</p>
                 <p>Preço: R$79.90</p>
-                <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                <button
+                  class="btn-add-to-cart"
+                  data-nome="Bolo de cenoura"
+                  data-descricao="Com cobertura de chocolate cremoso, serve 8 pessoas."
+                  data-preco="79.90"
+                >
+                  Adicionar ao Carrinho
+                </button>
               </div>
             </div>
             <div class="carousel-item">
@@ -60,7 +154,14 @@
                 <h5>Bolo de aniversário</h5>
                 <p>Recheio de geléia de morango com nozes, serve 12 pessoas.</p>
                 <p>Preço: R$129.90</p>
-                <button class="btn-add-to-cart">Adicionar ao Carrinho</button>
+                <button
+                  class="btn-add-to-cart"
+                  data-nome="Bolo de aniversário"
+                  data-descricao="Recheio de geléia de morango com nozes, serve 12 pessoas."
+                  data-preco="129.90"
+                >
+                  Adicionar ao Carrinho
+                </button>
               </div>
             </div>
           </div>
@@ -88,20 +189,63 @@
 
     <iframe id="footer" src="../../../rodape.html"></iframe>
 
-    <script>
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', '../../../menu.html', true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          document.getElementById('menu').innerHTML = xhr.responseText;
-        }
-      };
-      xhr.send();
-    </script>
-
     <script src="../../../assets/resources/library/bootstrap/js/bootstrap.min.js"></script>
-    <script type="module" src="../../util/shared.js"></script>
-    <script type="module" src="produtos.js"></script>
-    <script src="../index.js"></script>
+
+    <script>
+      let carrinho = [];
+
+      function adicionarAoCarrinho(produto) {
+        carrinho.push(produto);
+        const contadorCarrinho = document.getElementById("contador-carrinho");
+        contadorCarrinho.textContent = carrinho.length;
+      }
+
+      const botoesAdicionar = document.querySelectorAll(".btn-add-to-cart");
+      botoesAdicionar.forEach((botao) => {
+        botao.addEventListener("click", function () {
+          const nomeProduto = this.getAttribute("data-nome");
+          const descricaoProduto = this.getAttribute("data-descricao");
+          const precoProduto = parseFloat(this.getAttribute("data-preco"));
+
+          const produto = {
+            nome: nomeProduto,
+            descricao: descricaoProduto,
+            preco: precoProduto,
+          };
+
+          adicionarAoCarrinho(produto);
+          console.log(carrinho);
+        });
+
+        const linkCarrinho = document.getElementById("link-carrinho");
+        linkCarrinho.addEventListener("click", function () {
+          localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        });
+      });
+    </script>
+    <script src="produtos.js"></script>
   </body>
 </html>
+
+
+
+- Colocar no GitHub Pages
+- Uso de seletores CSS - id, classe e tag (faltou por id e tag)
+- Qual a diferença de símbolos do id, classe e tag para seletores CSS?
+- Qual a diferença do HTML para o DOM?
+- Qual a diferença entre tag e elemento? O que é um atributo em uma tag?
+- Uso de seletores hierárquicos dinâmicos, ou seja, via métodos do JQuery - parent/children/next
+- Manipulação do conteúdo de um input e div usando jQuery
+- Aplicar um plugin do jQuery (por exemplo, jQuery Mask Plugin)
+- O que é JSON?
+- Qual a diferença do JSON para um objeto literal?
+- Explicar o Fetch API para fazer uma requisição, explicar passo a passo, porque tem dois thens.
+- Qual a diferença entre usar Ajax e o Fecth API?
+- O que é uma requisição assíncrona?
+- Qual a diferença entre localStorage e Cookie em relação a comunicação com o servidor?
+- Explicar cada símbolo do regex de validação do email. O que é ^ e $, + [] e ()?
+- Customizar as mensagens nos balões de mensagem com setCustomValidity
+- String Template - a String com crase e ${}
+RONI FABIO BANASZEWSKI17:58
+- Qual a diferença entre usar Ajax com JS, com JQuery e o Fecth API?
+- Qual a diferença entre css() e addClass()

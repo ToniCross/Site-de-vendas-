@@ -47,7 +47,6 @@
   input[type="text"] {
     padding: 10px;
     padding-left: 32px;
-    border-radius: 10px;
     margin-top: 20px;
     background-color: #693708;
     border-color: white;
@@ -66,4 +65,39 @@
     border-radius: 10px;
     cursor: pointer;
     width: 255px;
+  }
+
+  .container-list {
+    background-color: #693708;
+    max-width: 800px;
+    width: 470px;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 15px 60px;
+    border-radius: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .container-list h2{
+    color: white;
+    justify-content: center;
+  }
+
+  #enderecos-table {
+    width: 350px; 
+    margin-bottom: 40px;
+  }
+  
+  #enderecos-table td {
+    width: 25%;
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255); 
+  }
+
+  tr{
+    color: white;
   }

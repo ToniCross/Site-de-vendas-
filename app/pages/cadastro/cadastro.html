@@ -28,7 +28,7 @@
             <span>Por favor insira seus dados abaixo</span>
           </div>
 
-          <form id="register-form">  <!-- inicio do form -->
+          <form id="register-form" onload="iniciar()">  <!-- inicio do form -->
             <div class="input-group">
   
               <input class="name"
@@ -53,18 +53,11 @@
                />
   
               <input class="password"
+                id="password"
                 type="password" 
                 name="password" 
                 placeholder="Senha" 
                />
-  
-              <input class="again"
-                id="password"
-                type="password" 
-                name="again" 
-                placeholder="Confirme a sua senha" 
-               />
-            </div>
   
             <button type="submit">Continuar</button>
           </form>    <!--Aqui acaba o form de Cadastro-->         
@@ -72,34 +65,6 @@
     </div>  
     <!-- fim do container cadastro-->
 
-    <script>
-      document.getElementById("register-form").addEventListener("submit", function(event) {
-    event.preventDefault(); 
-    
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let telefone = document.getElementById("phone").value;
-    let senha = document.getElementById("password").value;
-    
-    if (name && email && telefone && senha) {
-
-        let userData = {
-            name: name,
-            email: email,
-            telefone: telefone,
-            senha: senha
-          };
-      
-          localStorage.setItem("userData", JSON.stringify(userData));
-
-          alert("Cadastro realizado com sucesso!");
-
-      window.location.href = "../login/login.html";
-    } else {
-
-      alert("Por favor, preencha todos os campos!");
-    }
-  });
-    </script>
+    <script src="cadastro.js"></script>
   </body>
 </html>

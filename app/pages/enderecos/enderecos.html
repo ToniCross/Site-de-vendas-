@@ -11,83 +11,273 @@
     />
     <link rel="stylesheet" href="../../../assets/resources/styles/style.css" />
     <link rel="stylesheet" href="enderecos.css" />
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .logo {
+        float: left;
+      }
+
+      .logo > img {
+        position: left;
+        width: 8%;
+        border-radius: 20%;
+        margin-top: 1%;
+        margin-left: 1%;
+      }
+
+      .container-navBar {
+        background-color: #693708;
+        overflow: hidden;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-right: 25%;
+      }
+
+      nav li {
+        float: right;
+        margin-left: 40px;
+      }
+
+      nav li a {
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      nav li a:hover {
+        background-color: rgba(54, 27, 1, 1);
+        border-radius: 10%;
+      }
+
+      .navbar-brand img {
+        border-radius: 15%;
+        margin-left: 15px;
+        margin-top: 15px;
+        margin-bottom: -18px;
+      }
+    </style>
   </head>
 
   <body>
-    <iframe id="menu" src="../../../menu.html"></iframe>
+
+    <div class="container-navBar">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../../../assets/resources/images/logo.jpg.jpeg"
+          width="90"
+          height="72"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="../carrinho/carrinho.html" id="link-carrinho"
+              >Carrinho <span id="contador-carrinho">0</span></a
+            >
+          </li>
+          <li>
+            <a href="../produtos/produtos.html">Produtos</a>
+          </li>
+          <li>
+            <a href="../enderecos/enderecos.html">Endereços</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
         <main>
-            <div class="container">  
-                
-              <!-- Menssagem de ops -->
-                <div class="ops-message">
+
+          <div class="container-list" id="container-list" style="display: block;">
+            <h2>Endereços Cadastrados</h2>
+            
+            <table id="enderecos-table">
+              <thead>
+                <tr>
+                  <th>CEP</th>
+                  <th>Rua</th>
+                  <th>Número</th>
+                  <th>Bairro</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="enderecos-body"></tbody>
+            </table>
+            
+            <button id="btn-cadastrar-endereco">Cadastrar novo endereço</button>
+          </div>
+
+          <div class="container">                
+
+            <!-- formulario de cadastro de endereço-->
+    
+            <div class="container-register" id="container-register" style="display: none;"> 
+              <div class="tittle">
+                <span>Endereço</span>
+              </div>
+              <div class="sub-tittle">
+                <span>Por favor insira seus dados abaixo</span>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  <div
+                    id="msg-login"
+                    class="card-panel red white-text"
+                    style="display: none"
+                  ></div>
+                  <form id="register-form">  <!-- inicio do form -->
+    
+                    <div class="input-group">
                       
-                </div>
-              <!-- Menssagem de ops -->                
+                      <input class="CEP"
+                        type="text"
+                        name="number"
+                        placeholder="CEP"
+                      />
+    
+                      <input class="street"
+                        type="text"
+                        name="street"
+                        placeholder="Nome da rua"
+                      />
+    
+                      <input class="number"
+                        type="text"
+                        name="number-street"
+                        placeholder="Número da casa"
+                      />
 
-              <!-- formulario de cadastro de endereço-->
-      
-              <div class="container-register" id="container-register" style="display: block;"> 
-                <div class="tittle">
-                  <span>Endereço</span>
-                </div>
-                <div class="sub-tittle">
-                  <span>Por favor insira seus dados abaixo</span>
-                </div>
-                <div class="row">
-                  <div class="col s12">
-                    <div
-                      id="msg-login"
-                      class="card-panel red white-text"
-                      style="display: none"
-                    ></div>
-                    <form id="register-form">  <!-- inicio do form -->
-      
-                      <div class="input-group">
-                        
-                        <input class="CEP"
-                          type="text"
-                          name="numer"
-                          placeholder="CEP"
-                        />
-      
-                        <input class="street"
-                          type="text"
-                          name="street"
-                          placeholder="Nome da rua"
-                        />
-      
-                        <input class="number"
-                          type="text"
-                          name="numer"
-                          placeholder="Número da casa"
-                        />
+                      <input class=""
+                        type="text"
+                        name="text-bairro"
+                        placeholder="bairro"
+                      />
 
-                        <input class=""
-                          type="text"
-                          name="numer"
-                          placeholder="bairro"
-                        />
-
-                      </div>
-      
-                      <button type="submit">Cadastrar novo endereço</button>
-                      <div class="texto-para-criar-conta">
-                      </div>
-                    </form>    <!-- fim do form -->
-                  </div>
-              </div>  
-              
-              <!-- fim do container de cadastro de endereço -->
-            </div>
+                    </div>
+    
+                    <button type="submit" id="submit">Continuar</button>
+                  </form>    <!-- fim do form -->
+              </div>
+          </div>  
+            
+            <!-- fim do container de cadastro de endereço -->
         </main>
+
     <iframe id="footer" src="../../../rodape.html"></iframe>
 
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
-    <script src="../../../assets/resources/library/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/node_modules/alertifyjs/build/alertify.js"></script>
-    <script type="module" src="../../util/shared.js"></script>
-    <script type="module" src="produtos.js"></script>
+    <script src="../../../assets/resources/library/alertify/alertify.min.js"></script>
+
+    <script>
+
+      // Criação de um JSON para endereços:
+    
+      const registerForm = document.getElementById("register-form");
+    
+      registerForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        const cep = document.querySelector("input[name='number']").value;
+        const street = document.querySelector("input[name='street']").value;
+        const number = document.querySelector("input[name='number-street']").value;
+        const neighborhood = document.querySelector("input[name='text-bairro']").value;
+    
+        const endereco = {
+          cep: cep,
+          street: street,
+          number: number,
+          neighborhood: neighborhood,
+        };
+    
+        let enderecos = [];
+    
+        if (localStorage.getItem("enderecos")) {
+          enderecos = JSON.parse(localStorage.getItem("enderecos"));
+        }
+    
+        enderecos.push(endereco);
+    
+        localStorage.setItem("enderecos", JSON.stringify(enderecos));
+    
+        alert("Endereço cadastrado com sucesso!");
+    
+        registerForm.reset();
+      });
+    
+      // Listando os endereços do localStorage
+    
+      if (localStorage.getItem("enderecos")) {
+        let enderecos = JSON.parse(localStorage.getItem("enderecos"));
+        const tableBody = document.getElementById("enderecos-body");
+    
+        if (enderecos.length > 0) {
+          enderecos.forEach((endereco, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${endereco.cep}</td>
+              <td>${endereco.street}</td>
+              <td>${endereco.number}</td>
+              <td>${endereco.neighborhood}</td>
+              <td>
+                <button class="remove-button" data-index="${index}">Remover</button>
+              </td>
+            `;
+            tableBody.appendChild(row);
+          });
+    
+          const removeButtons = document.getElementsByClassName("remove-button");
+          Array.from(removeButtons).forEach(button => {
+            button.addEventListener("click", function() {
+              const index = parseInt(button.getAttribute("data-index"));
+              removeEndereco(index, enderecos);
+            });
+          });
+        } else {
+          const row = document.createElement("tr");
+          row.innerHTML = `<td colspan="5">Nenhum endereço cadastrado.</td>`;
+          tableBody.appendChild(row);
+        }
+      } else {
+        const tableBody = document.getElementById("enderecos-body");
+        const row = document.createElement("tr");
+        row.innerHTML = `<td colspan="5">Nenhum endereço cadastrado.</td>`;
+        tableBody.appendChild(row);
+      }
+    
+      function removeEndereco(index, enderecos) {
+        enderecos.splice(index, 1);
+        localStorage.setItem("enderecos", JSON.stringify(enderecos));
+        location.reload();
+      }
+    
+      // Manipulação dos botões:
+    
+      const btnCadastrarEndereco = document.getElementById("btn-cadastrar-endereco");
+      const btnSubmit = document.getElementById("submit");
+      const containerListDiv = document.getElementById("container-list");
+      const containerRegisterDiv = document.getElementById("container-register");
+    
+      btnCadastrarEndereco.addEventListener("click", function() {
+        containerListDiv.style.display = "none";
+        containerRegisterDiv.style.display = "block";
+      });
+    
+      btnSubmit.addEventListener("click", function() {
+        containerListDiv.style.display = "block";
+        containerRegisterDiv.style.display = "none";
+        location.reload();
+      });
+    
+    </script>
+    
   </body>
 </html>

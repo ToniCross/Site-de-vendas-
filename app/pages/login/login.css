@@ -83,6 +83,7 @@
     border-radius: 10px;
     cursor: pointer;
     width: 395px;
+    height: 40px;
   }
   
   button[type="button"]{

@@ -11,24 +11,237 @@
     />
     <link rel="stylesheet" href="../../../assets/resources/styles/style.css" />
     <link rel="stylesheet" href="carrinho.css" />
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .logo {
+        float: left;
+      }
+
+      .logo > img {
+        position: left;
+        width: 8%;
+        border-radius: 20%;
+        margin-top: 1%;
+        margin-left: 1%;
+      }
+
+      .container-navBar {
+        background-color: #693708;
+        overflow: hidden;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-right: 25%;
+      }
+
+      nav li {
+        float: right;
+        margin-left: 40px;
+      }
+
+      nav li a {
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      nav li a:hover {
+        background-color: rgba(54, 27, 1, 1);
+        border-radius: 10%;
+      }
+
+      .navbar-brand img {
+        border-radius: 15%;
+        margin-left: 15px;
+        margin-top: 15px;
+        margin-bottom: -18px;
+      }
+    </style>
   </head>
 
   <body>
-    <iframe id="menu" src="../../../menu.html"></iframe>
+    <div class="container-navBar">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../../../assets/resources/images/logo.jpg.jpeg"
+          width="90"
+          height="72"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="../carrinho/carrinho.html" id="link-carrinho"
+              >Carrinho <span id="contador-carrinho">0</span></a
+            >
+          </li>
+          <li>
+            <a href="../produtos/produtos.html">Produtos</a>
+          </li>
+          <li>
+            <a href="../enderecos/enderecos.html">Endereços</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
     <div class="container">
       <main>
-        
+        <table id="tabela-carrinho">
+          <thead>
+            <h1>Carrinho:</h1>
+            <tr>
+              <th>Quantidade</th>
+              <th>Produto</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
+
+        <table id="tabela-total">
+          <thead>
+            <h5>Total da compra:</h5>
+            <tr>
+              <th>Total de itens</th>
+              <th>Total a pagar:</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <button type="submit" id="btn-finalizar-compra">
+          Finalizar compra
+        </button>
       </main>
     </div>
 
     <iframe id="footer" src="../../../rodape.html"></iframe>
 
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/materialize-css/dist/js/materialize.js"></script>
+    <script>
+      
+      // Resgatando o carrinho de produtos:
+
+      const carrinhoJSON = localStorage.getItem("carrinho");
+      let carrinho = [];
+
+      if (carrinhoJSON) {
+        carrinho = JSON.parse(carrinhoJSON);
+      }
+
+      if (localStorage.getItem("carrinho")) {
+        function renderizarCarrinho() {
+          const tabelaCarrinho = document.getElementById("tabela-carrinho");
+          const tbody = tabelaCarrinho.querySelector("tbody");
+
+          tbody.innerHTML = "";
+
+          carrinho.forEach((produto, index) => {
+            const row = document.createElement("tr");
+
+            const cellQuantidade = document.createElement("td");
+            cellQuantidade.textContent = "1";
+            row.appendChild(cellQuantidade);
+
+            const cellNome = document.createElement("td");
+            cellNome.textContent = produto.nome;
+            row.appendChild(cellNome);
+
+            const cellPreco = document.createElement("td");
+            cellPreco.textContent = `R$${produto.preco.toFixed(2)}`;
+            row.appendChild(cellPreco);
+
+            const cellRemover = document.createElement("td");
+            const botaoRemover = document.createElement("button");
+            botaoRemover.setAttribute("data-index", index);
+            botaoRemover.setAttribute("id", `btn-remover-${index}`);
+            botaoRemover.addEventListener("click", function () {
+              const dataIndex = parseInt(this.getAttribute("data-index"));
+              removerItem(dataIndex);
+            });
+            cellRemover.appendChild(botaoRemover);
+            cellRemover.classList.add("celula-com-espacamento");
+            row.appendChild(cellRemover);
+
+            tbody.appendChild(row);
+          });
+
+          calculaTotal();
+        }
+      } else {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td colspan="5">Nenhum endereço cadastrado.</td>`;
+        tableBody.appendChild(row);
+      }
+
+      // Relacionado ao calculo do total a pagar:
+
+      function calculaTotal() {
+        const tabelaTotal = document.getElementById("tabela-total");
+        const tbody = tabelaTotal.querySelector("tbody");
+
+        let total = 0;
+        let quantidade = 0;
+
+        carrinho.forEach((produto) => {
+          total += produto.preco;
+          quantidade++;
+        });
+
+        tbody.innerHTML = `
+        <tr>
+          <td>${quantidade}</td>
+          <td>R$${total.toFixed(2)}</td>
+        </tr>
+        `;
+      }
+
+      function removerItem(index) {
+        carrinho.splice(index, 1);
+        renderizarCarrinho();
+        atualizarContadorCarrinho();
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      }
+
+      const contadorCarrinho = document.getElementById("contador-carrinho");
+      contadorCarrinho.textContent = carrinho.length;
+
+      renderizarCarrinho();
+
+      function atualizarLocalStorage() {
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      }
+
+      function atualizarContadorCarrinho() {
+        const contadorCarrinho = document.getElementById("contador-carrinho");
+        contadorCarrinho.textContent = carrinho.length;
+      }
+
+      // Botão finalizar compra:
+
+      const btnFinalizarCompra = document.getElementById(
+        "btn-finalizar-compra"
+      );
+
+      btnFinalizarCompra.addEventListener("click", function () {
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+        window.location.href = "../compra/compra.html";
+      });
+    </script>
+
     <script src="../../../assets/resources/library/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/node_modules/alertifyjs/build/alertify.js"></script>
-    <script type="module" src="../../util/shared.js"></script>
-    <script type="module" src="produtos.js"></script>
+    <!--<script type="module" src="carrinho.js"></script>-->
   </body>
 </html>

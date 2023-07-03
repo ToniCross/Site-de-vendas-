@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="login.css">
   </head>
 
-  <body>
+  <body onload="iniciar()">
     <main>
       <div class="container">
         <div class="container-login" id="container-login" style="display: block;">  
@@ -43,7 +43,7 @@
     
               <a href="#" class="forgot-password">Esqueceu a senha?</a>
     
-              <button type="submit">Login</button>
+              <button type="submit" id="btnLogin">Login</button>
               <button type="button">Ou continue com o Google</button>
               <div class="texto-para-criar-conta">
                 <a class="texto-não-possui-conta-ainda">Não possui conta ainda?</a>
@@ -59,37 +59,6 @@
     
     <script src="../../../assets/resources/library/alertify/alertify.min.js"></script>
     
-    <script>
-      'use strict';
-      const LOGGED_IN_KEY = '123';
-const USERNAME_KEY = 'toniazzo';
-
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  let email = document.getElementById("email").value;
-  let senha = document.getElementById("password").value;
-
-  if (email && senha) {
-    let storedData = localStorage.getItem("userData");
-    if (storedData) {
-      let userData = JSON.parse(storedData);
-      if (userData.email === email && userData.senha === senha) {
-        
-        alert("Login realizado com sucesso!");
-
-        window.location.href = "../produtos/produtos.html";
-        console.log("Era pra ter desviado para a página produtos");
-      } else {
-        alertify.error("Email ou senha incorretos. Por favor, tente novamente.");
-      }
-    } else {
-      alertify.alert("Não há registro de usuário. Por favor, cadastre-se primeiro.");
-    }
-  } else {
-    alertify.alert("Por favor, preencha todos os campos!");
-  }
-});
-    </script>
+    <script src="login.js"></script>
   </body>
 </html>
