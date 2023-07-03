@@ -29,4 +29,4 @@ https://www.figma.com/proto/7j8v4UV6gqVnBGBXcUAJAz/Design-Login%2FRegister-Page-
 - [x] Evento de movimento do mouse
 - [x] Evento de teclado - usar charCode ou keyCode
 - [x] Eventos de formulário - usar onfocus e onblur
-- [ ] Imprimir alguma propriedade/atributo do objeto event recebido como parâmetro na função tratadora de evento
+- [x] Imprimir alguma propriedade/atributo do objeto event recebido como parâmetro na função tratadora de evento
