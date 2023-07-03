@@ -26,7 +26,7 @@ https://www.figma.com/proto/7j8v4UV6gqVnBGBXcUAJAz/Design-Login%2FRegister-Page-
 ### Eventos
 
 - [x] Evento de carregamento do documento - onload
-- [ ] Evento de movimento do mouse
+- [x] Evento de movimento do mouse
 - [ ] Evento de teclado - usar charCode ou keyCode
 - [ ] Eventos de formulário - usar onfocus e onblur
 - [ ] Imprimir alguma propriedade/atributo do objeto event recebido como parâmetro na função tratadora de evento
