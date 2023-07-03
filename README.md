@@ -32,8 +32,8 @@ https://www.figma.com/proto/7j8v4UV6gqVnBGBXcUAJAz/Design-Login%2FRegister-Page-
 - [x] Imprimir alguma propriedade/atributo do objeto event recebido como parâmetro na função tratadora de evento
 ### Acesso aos elementos DOM do HTML
 
-- [ ] Via referência DOM pelo id do elemento HTML - acesso sem uso do getElementByID ou querySelector, o id do objeto DOM é o próprio nome da variável
-- [ ] Via getElementByID()
+- [x] Via referência DOM pelo id do elemento HTML - acesso sem uso do getElementByID ou querySelector, o id do objeto DOM é o próprio nome da variável
+- [x] Via getElementByID()
 - [ ] Via getElementsByName()
 - [ ] Via getElementsByTagName()
 - [ ] Via seletores CSS usados na função querySelector() ou querySelectorAll()
